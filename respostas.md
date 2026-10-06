@@ -35,7 +35,18 @@ O Nginx busca os arquivos do site em /usr/share/nginx/html/ e pra conferir o ind
 ## Parte 2 · Docker Hub
 
 3. Nome completo da imagem publicada e link público do repositório no Docker Hub.
-4. Por que o `docker login` foi feito com um token de acesso e não com a senha da conta?
+
+
+
+jeffsilva03/agrovale-portal:1.0-26128006.
+
+
+
+4\. Por que o `docker login` foi feito com um token de acesso e não com a senha da conta?
+
+Pois o token de acesso é mais seguro do que utilizar diretamente a senha da conta, caso tenha algum problema o token expira e não é necessário trocar a senha da conta toda
+
+
 
 ## Parte 3 · Página de manutenção
 
@@ -43,15 +54,31 @@ O Nginx busca os arquivos do site em /usr/share/nginx/html/ e pra conferir o ind
 
 |#|Instrução|O que estava errado|O que você viu acontecer|Como corrigiu|
 |-|-|-|-|-|
-|1|||||
-|2|||||
+|1|COPY|O DockerFile não puxava o index.html para a imagem, então aparecia a página padrão do NGINX|O container rodou mas apareceu a mensagem do nginx|Adicionei o COPY para copiar a página de manutenção|
+|2|WORKDIR|Estava levando para /usr/share/nginx em vez da pasta correta|Mesmo com o arquivo copiado, continuou aparecendo a mensagem do nginx|Troquei para /usr/share/nginx/html|
 |3|||||
 
 6. Qual a diferença entre `-p 7042:80` e `-p 80:7042` no `docker run`? Qual dos dois números é a porta do container?
 
+
+
+\-p 7042:80 = a porta 7042 é a porta do computador e a porta 80 é a porta do container. Quando acessar localhost:7042, a requisição é enviada para a porta 80 do container.
+
+
+
+\-p 80:7042 = acontece ao contrário, a porta 80 é do PC que leva para a porta 7042 do container.
+
+
+
+O formato é HOST:CONTAINER, que seria igual a explicação que passou na sala PRÉDIO:APARTAMENTO.
+
+
+
+
+
 ## Parte 4 · docker-compose.yml
 
-7. No serviço `blog`, por que `WORDPRESS\_DB\_HOST` recebe `db` e não `localhost`?
+7. No serviço `blog`, por que `WORDPRESS\\\\\\\_DB\\\\\\\_HOST` recebe `db` e não `localhost`?
 8. Por que o serviço `db` não publica a porta 3306? Se precisar consultar o banco, como faz sem publicar
 a porta? Mostre o comando.
 
