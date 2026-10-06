@@ -133,6 +133,70 @@ pois o que usei ele só derrubou e não apagou o post
 10\. Código de conclusão impresso pelo verificador:
 
 ```
-(cole aqui)
+PS C:\\Users\\Aluno\\Downloads\\avaliacao-docker-agrovale> powershell -ExecutionPolicy Bypass -File scripts\\verificar.ps1
+
+================================================================
+
+&#x20;Verificador · Avaliação Prática de Docker · Turma A
+
+================================================================
+
+&#x20;Matrícula 26128006 · portal 8006 · blog 9006 · manutenção 7006
+
+
+
+A. Arquivos, imagens e Git
+
+\[ OK ] A1 portal/Dockerfile segue os requisitos
+
+\[ OK ] A2 imagem manutencao:26128006 corrigida e servindo o aviso
+
+\[ OK ] A3 .env fora do Git e .env.example versionado
+
+\[ OK ] A4 5+ commits e remoto no GitHub (encontrados: 5)
+
+\[ OK ] A5 imagem jeffsilva03/agrovale-portal:1.0-26128006 pública no Docker Hub
+
+
+
+B. Stack em execução
+
+\[ OK ] B1 serviços portal, blog e db em execução
+
+\[ OK ] B2 portal roda a imagem publicada
+
+\[ OK ] B3 portas: portal em 8006 e blog em 9006
+
+\[ OK ] B4 db sem porta publicada e com volume nomeado
+
+\[ OK ] B5 blog com volume nomeado em /var/www/html
+
+\[ OK ] B6 rede própria compartilhada pelos três serviços
+
+\[ OK ] B7 política de restart nos três serviços
+
+\[ OK ] B8 nenhuma senha escrita direto no docker-compose.yml
+
+
+
+C. Conteúdo e persistência
+
+\[ OK ] C1 portal mostra seu nome e sua matrícula
+
+\[ OK ] C2 WordPress instalado com a matrícula no título do site
+
+\[ OK ] C3 post sobreviveu à recriação do blog (post 2026-10-06T00:28:11 · container 2026-10-06T00:33:15)
+
+
+
+================================================================
+
+&#x20;Resultado: 16/16 verificações
+
+&#x20;Código de conclusão: AGROVALE-26128006-086AB452
+
+&#x20;Copie o código para o respostas.md, faça o commit final e crie a tag v1.0.
+
+================================================================
 ```
 
