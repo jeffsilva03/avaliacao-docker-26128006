@@ -56,7 +56,7 @@ Pois o token de acesso é mais seguro do que utilizar diretamente a senha da con
 |-|-|-|-|-|
 |1|COPY|O DockerFile não puxava o index.html para a imagem, então aparecia a página padrão do NGINX|O container rodou mas apareceu a mensagem do nginx|Adicionei o COPY para copiar a página de manutenção|
 |2|WORKDIR|Estava levando para /usr/share/nginx em vez da pasta correta|Mesmo com o arquivo copiado, continuou aparecendo a mensagem do nginx|Troquei para /usr/share/nginx/html|
-|3|||||
+|3|EXPOSE |Faltava colocar a porta 80 no Dockerfile|A página funcionou, mas a porta não estava declarada no dockerfile|Adicionei EXPOSE 80|
 
 6. Qual a diferença entre `-p 7042:80` e `-p 80:7042` no `docker run`? Qual dos dois números é a porta do container?
 
