@@ -79,14 +79,58 @@ O formato é HOST:CONTAINER, que seria igual a explicação que passou na sala P
 ## Parte 4 · docker-compose.yml
 
 7. No serviço `blog`, por que `WORDPRESS\\\\\\\_DB\\\\\\\_HOST` recebe `db` e não `localhost`?
-8. Por que o serviço `db` não publica a porta 3306? Se precisar consultar o banco, como faz sem publicar
-a porta? Mostre o comando.
+
+
+
+Porque os containers se comunicam pelo docker compose usando o nome do serviço
+
+
+
+
+
+
+
+8\. Por que o serviço `db` não publica a porta 3306? Se precisar consultar o banco, como faz sem publicar a porta? Mostre o comando.
+
+
+
+Pois é o wordpress que precisa acessar o banco pela rede interna do Docker Compose, o que evita de expor o banco. Para consultar o banco poderia fazer:
+
+
+
+docker compose exec db mariadb -u root -p
+
+
+
+
+
+
 
 ## Parte 5 · Persistência
 
-9. Quais comandos você usou para derrubar e subir a stack? Qual comando teria apagado o post que você criou,
-e por quê?
-10. Código de conclusão impresso pelo verificador:
+9. Quais comandos você usou para derrubar e subir a stack? Qual comando teria apagado o post que você criou, e por quê?
+
+
+
+
+
+Usei docker compose down para remover os containers e depois docker compose up -d para criar eles de novo. O comando que apagaria os dados seria:
+
+
+
+docker compose down -v
+
+
+
+pois o que usei ele só derrubou e não apagou o post 
+
+
+
+
+
+
+
+10\. Código de conclusão impresso pelo verificador:
 
 ```
 (cole aqui)
